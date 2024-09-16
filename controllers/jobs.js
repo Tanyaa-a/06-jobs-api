@@ -1,3 +1,4 @@
+//controllers/jobs.js
 const Job = require("../models/Job");
 const { StatusCodes } = require("http-status-codes");
 const { BadRequestError, NotFoundError } = require("../errors");
@@ -57,7 +58,7 @@ const deleteJob = async (req, res) => {
   if (!job) {
     throw new NotFoundError(`No job found`);
   }
-  res.status(StatusCodes.OK).send();
+  res.status(StatusCodes.OK).json({ msg: "The entry was deleted." });
 };
 
 module.exports = {
@@ -67,3 +68,4 @@ module.exports = {
   updateJob,
   deleteJob,
 };
+
